@@ -26,8 +26,10 @@ class CircularLinledList:
             p.set_next(p)
         else:
             q = self.__head
-            while q.get_next() is not q:
+            while True:
                 q = q.get_next()
+                if q.get_next() == self.__head:
+                    break
             q.set_next(p) 
             p.set_next(self.__head)
         print("node added at tail\n")
@@ -43,7 +45,7 @@ class CircularLinledList:
             q = self.__head
             while True:
                 q = q.get_next()
-                if q == self.__head:
+                if q.get_next() == self.__head:
                     break
             q.set_next(p)
             p.set_next(self.__head)
