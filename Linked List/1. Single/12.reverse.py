@@ -34,25 +34,32 @@ class SingleLinledList:
         if self.__head == None:
             print("\nlist is empty\n")
         else:
-            temp = self.__head
-            while(temp):
-                print(temp.get_data(), end=" ")
-                temp = temp.get_next()
+            q = self.__head
+            first_node = True  # Flag to track the last node
+            while q is not None:
+                if not first_node:
+                    print(" -> ", end='')  # Print '->' for all nodes except the last one
+                print(q.get_data(), end='')
+                first_node = False
+                q = q.get_next()
             print('\n')
 
 
 
 
     def reversed_list(self):
-        q = self.__head
-        prev = None
-        while q is not None:
-            next = q.get_next()
-            q.get_next = prev
-            prev = q
-            q = next
-        self.__head = prev
-
+        current = self.__head
+        if current != None:
+            prev = None
+            while current is not None:
+                next = current.get_next()
+                current.set_next(prev)
+                prev = current
+                current = next
+            self.__head = prev
+            
+        else:
+            print("the list is empty\n")
 
 
         
