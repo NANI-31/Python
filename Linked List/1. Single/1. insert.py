@@ -64,17 +64,18 @@ class SingleLinledList:
         else:
             print("the list is empty\n")
         
-    def add_at_position(self, pos):
+    def add_at_position(self, data, pos):
         q = self.__head
         p = q
-        c = 0
+        c = 1
         while q.get_next() is not None:
-            if pos == c-1:
+            if pos == c:
                 break
             else:
                 p = q
                 q = q.get_next()
                 c += 1
+        
             pass
        
 
@@ -95,6 +96,7 @@ while True:
         print()
         sll.list_nodes()
     elif op == 3:
+        print("\nenter the data:", end=" ")
         sll.print_middle_values()
     else:
         break
