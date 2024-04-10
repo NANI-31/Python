@@ -28,7 +28,7 @@ class SingleLinledList:
             while q.get_next() is not None:
                 q = q.get_next()
             q.set_next(p) 
-        print("node added at head")
+        print("node added at head\n")
     
     def list_nodes(self):
         if self.__head == None:
