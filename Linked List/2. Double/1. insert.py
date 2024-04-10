@@ -2,18 +2,24 @@ class Node:
     def __init__(self):
         self.__data = 0
         self.__next = None
+        self.__prev_next = None
 
     def set_data(self,data):
         self.__data = data
     def get_data(self):
         return self.__data
     
+    def set_prev_next(self,data):
+        self.__prev_next = data
+    def get_prev_next(self):
+        return self.__prev_next
+    
     def set_next(self,data):
         self.__next = data
     def get_next(self):
         return self.__next
     
-class SingleLinledList:
+class DoubleLinledList:
     def __init__(self):
         self.__head = None
     
@@ -28,6 +34,7 @@ class SingleLinledList:
             while q.get_next() is not None:
                 q = q.get_next()
             q.set_next(p) 
+            p.set_prev_next(q)
         print("node added at tail\n")
         
     def add_at_head(self, x):
@@ -39,7 +46,10 @@ class SingleLinledList:
         else:
             q = self.__head
             p.set_next(q)
+            q.set_prev_next(p)
             self.__head = p
+            h = self.__head
+            # print(h.get_next().get_prev_next().get_data())
         print("node added at head\n")
     
     def list_nodes(self):
@@ -50,7 +60,7 @@ class SingleLinledList:
             first_node = True  # Flag to track the last node
             while q is not None:
                 if not first_node:
-                    print(" -> ", end='')  # Print '->' for all nodes except the last one
+                    print(" <=> ", end='')  # Print '->' for all nodes except the last one
                 print(q.get_data(), end='')
                 first_node = False
                 q = q.get_next()
@@ -80,8 +90,8 @@ class SingleLinledList:
         if pos == 1:
             self.add_at_head(data)
         else:
-            p = Node()
-            p.set_data(data)
+            neew = Node()
+            neew.set_data(data)
             q = self.__head
             prev = q
             c = 1
@@ -92,13 +102,15 @@ class SingleLinledList:
                     prev = q
                     q = q.get_next()
                     c += 1
-            p.set_next(prev.get_next())
-            prev.set_next(p)
+            neew.set_prev_next(q.get_prev_next())
+            neew.set_next(prev.get_next())
+            prev.set_next(neew)
+            q.set_prev_next(neew)
             print("node added at postion\n")
        
 
 
-sll = SingleLinledList()
+sll = DoubleLinledList()
 
 while True:
     print("--------MENU--------")
