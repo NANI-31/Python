@@ -43,6 +43,25 @@ class SinglrLinkedList:
                     swapped = True
                 current = current.get_next()
     
+    def remove_duplicates(self):
+        current = self.__head
+        prev = current
+        dic = {}
+        
+        while current is not None:
+            i = current.get_data()
+            if i not in dic:
+                dic[i] = 1
+            else:
+                dic[i] += 1    
+            if dic[i] > 1 and prev.get_next() is not None:   
+                prev.set_next(current.get_next())             
+            elif dic[i] > 1 and prev.get_next() is None:
+                prev.set_next(None)                
+            prev = current
+            current  = current.get_next()
+        
+    
     def list_nodes(self):
         current = self.__head
         
@@ -60,11 +79,13 @@ sll.push_nodes(40)
 sll.push_nodes(30)
 sll.push_nodes(60)
 sll.push_nodes(70)
+sll.push_nodes(70)
+sll.push_nodes(50)
 sll.push_nodes(50)
 
 while True:
     print("---------------MENU-----------------")
-    print("1.list nodes \n2.sort nodes \n3.exit")
+    print("1.list nodes \n2.sort nodes \n3.remove duplicates \n4.exit")
     print("enter your option: ", end='')
     op = int(input())
     if op == 1:
@@ -72,6 +93,8 @@ while True:
         sll.list_nodes()
     elif op == 2:
         sll.sort_list()
+    elif op == 3:
+        sll.remove_duplicates()
     else:
         break
     
