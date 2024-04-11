@@ -44,18 +44,30 @@ class SingleLinledList:
                 q = q.get_next()
             print('\n')
     
-    def Nth_Node_from_end(self, k):
-        if k == 0:
+    def Nth_Node_from_end(self, value):
+        if value == 0:
             return
         q = self.__head
-        l = []
+        p = None
+        last_occ_addr = None
         while q is not None:
-            l.append(q.get_data())
+            if value == q.get_data():
+                last_occ_addr = p
+            p = q
             q = q.get_next()
-        if len(l) >= k:
-             print(l[-k])
-        else:
-            print("the value is high")
+            
+        if last_occ_addr is None and self.__head.get_data() == value:
+            self.__head = self.__head.get_next()
+            
+        elif last_occ_addr is not None:
+            if last_occ_addr.get_next() is not None:
+                last_occ_addr.set_next(last_occ_addr.get_next().get_next())
+            else:
+                p.set_next(None)
+
+            
+        
+        
             
             
             
@@ -76,12 +88,14 @@ sll.push(20)
 sll.push(30)
 sll.push(40)
 sll.push(50)
-sll.push(60)
+sll.push(10)
+sll.push(70)
+
 
 
 while True:
     print("--------MENU--------")
-    print("1.list nodes \n2.Nth node from end \n5.exit")
+    print("1.list nodes \n2.delete last occurence \n5.exit")
     print("choose an option", end=" ")
     op = int(input())
 
@@ -89,6 +103,6 @@ while True:
         print()
         sll.list_nodes()
     elif op == 2:
-        sll.Nth_Node_from_end(7)
+        sll.Nth_Node_from_end(10)
     else:
         break
