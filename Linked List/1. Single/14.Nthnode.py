@@ -44,26 +44,19 @@ class SingleLinledList:
                 q = q.get_next()
             print('\n')
     
-    def rotate_list(self, k):
+    def Nth_Node_from_end(self, k):
         if k == 0:
             return
-        count = 1
         q = self.__head
-        initial_addr = q
-        while count < k and q.get_next() is not None:
+        l = []
+        while q is not None:
+            l.append(q.get_data())
             q = q.get_next()
-            count += 1
-        print(q.get_data()) 
-        if q is None: 
-            return
-        
-        self.__head = q.get_next()
-        q.set_next(None)
-        p = self.__head
-        
-        while p.get_next() is not None:
-            p = p.get_next()
-        p.set_next(initial_addr)
+        if len(l) >= k:
+             print(l[-k])
+        else:
+            print("the value is high")
+            
             
             
         
@@ -88,7 +81,7 @@ sll.push(60)
 
 while True:
     print("--------MENU--------")
-    print("1.list nodes \n2.rotate list \n5.exit")
+    print("1.list nodes \n2.Nth node from end \n5.exit")
     print("choose an option", end=" ")
     op = int(input())
 
@@ -96,6 +89,6 @@ while True:
         print()
         sll.list_nodes()
     elif op == 2:
-        sll.rotate_list(4)
+        sll.Nth_Node_from_end(7)
     else:
         break
