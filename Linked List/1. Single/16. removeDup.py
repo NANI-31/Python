@@ -32,7 +32,7 @@ class SinglrLinkedList:
     def sort_list(self):
         current = self.__head
         next = current.get_next() 
-        while current is not None:
+        while current.get_next() is not None:
             if current.get_data() > next.get_data():
                 temp = current.get_data()
                 current.set_data(next.get_data())
@@ -43,9 +43,35 @@ class SinglrLinkedList:
     def list_nodes(self):
         current = self.__head
         
-        while current.get_next() is not None:
+        while current is not None:
             print(current.get_data(), end='->')
             current = current.get_next()
+        print('\n')
+            
+
+sll = SinglrLinkedList()
+
+sll.push_nodes(10)
+sll.push_nodes(20)
+sll.push_nodes(40)
+sll.push_nodes(30)
+sll.push_nodes(60)
+sll.push_nodes(70)
+sll.push_nodes(50)
+
+while True:
+    print("---------------MENU-----------------")
+    print("1.list nodes \n2.sort nodes \n3.exit")
+    print("enter your option: ", end='')
+    op = int(input())
+    if op == 1:
+        print()
+        sll.list_nodes()
+    elif op == 2:
+        sll.sort_list()
+    else:
+        break
+    
             
             
             
