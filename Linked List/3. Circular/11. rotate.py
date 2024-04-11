@@ -20,8 +20,20 @@ class CircularLinledList:
     def push(self, data):
         p = Node()
         p.set_data(data)
-        p.set_next(self.__head)
-        self.__head = p
+
+        if self.__head == None:
+            self.__head = p
+            p.set_next(p)
+        else:
+            q = self.__head
+            while True:
+                q = q.get_next()
+                if q.get_next() == self.__head:
+                    break
+            q.set_next(p)
+            p.set_next(self.__head)
+            self.__head = p
+        print("node added at head\n")
         
 
     
@@ -53,28 +65,15 @@ for i in range(60, 0, -10):
 
 while True:
     print("--------MENU--------")
-    print("1.add at tail \n2.add at head \n3.Add in position(btw) \n4.list nodes \n6.exit")
+    print("1.list nodes \n6.exit")
     print("choose an option", end=" ")
     op = int(input())
 
     if op == 1:
-        print("\nenter the data:", end=" ")
-        data = int(input())
-        sll.add_at_tail(data)
+        print()
+        sll.list_nodes() 
     elif op == 2:
-        print("\nenter the data:", end=" ")
-        data = int(input())
-        sll.add_at_head(data)
-    elif op == 3:
-        print("\nenter the data:", end=" ")
-        data = int(input())
-        print("enter the position:", end=" ")
-        pos = int(input())
-        sll.add_at_position(data, pos) 
-    elif op == 4:
         print()
         sll.list_nodes()
-    elif op == 5:
-        sll.print_middle_values()
     else:
         break
