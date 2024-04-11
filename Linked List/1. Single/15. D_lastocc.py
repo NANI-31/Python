@@ -56,6 +56,8 @@ class SingleLinledList:
             p = q
             q = q.get_next()
             
+        
+            
         if last_occ_addr is None and self.__head.get_data() == value:
             self.__head = self.__head.get_next()
             
@@ -89,7 +91,7 @@ sll.push(30)
 sll.push(40)
 sll.push(50)
 sll.push(10)
-sll.push(70)
+sll.push(10)
 
 
 
