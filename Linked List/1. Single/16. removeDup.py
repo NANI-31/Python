@@ -46,17 +46,16 @@ class SinglrLinkedList:
     def remove_duplicates(self):
         current = self.__head
         prev = current
-        dic = {}
+
+        s = set()
         
         while current is not None:
             i = current.get_data()
-            if i not in dic:
-                dic[i] = 1
-            else:
-                dic[i] += 1    
-            if dic[i] > 1 and prev.get_next() is not None:   
+            if i not in s:
+                s.add(i)   
+            if i in s and prev.get_next() is not None:   
                 prev.set_next(current.get_next())             
-            elif dic[i] > 1 and prev.get_next() is None:
+            elif i in s and prev.get_next() is None:
                 prev.set_next(None)                
             prev = current
             current  = current.get_next()
