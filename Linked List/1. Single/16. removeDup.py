@@ -30,15 +30,18 @@ class SinglrLinkedList:
             
     
     def sort_list(self):
-        current = self.__head
-        next = current.get_next() 
-        while current.get_next() is not None:
-            if current.get_data() > next.get_data():
-                temp = current.get_data()
-                current.set_data(next.get_data())
-                next.set_data(temp)
-            next = next.get_next()
-            current = current.get_next()
+        swapped = True
+        while swapped:
+            swapped = False
+            current = self.__head
+            
+            while current.get_next() is not None:
+                if current.get_data() > current.get_next().get_data():
+                    temp = current.get_data()
+                    current.set_data(current.get_next().get_data())
+                    current.get_next().set_data(temp)
+                    swapped = True
+                current = current.get_next()
     
     def list_nodes(self):
         current = self.__head
