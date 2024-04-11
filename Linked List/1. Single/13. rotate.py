@@ -43,66 +43,36 @@ class SingleLinledList:
                 first_node = False
                 q = q.get_next()
             print('\n')
-    def delete_first_node(self):
+    
+    def rotate_list(self, k):
+        if k == 0:
+            return
+        count = 1
         q = self.__head
-        temp = 0
-        if q is None:
-            print("\nlist is empty\n")
-        else:
-            if q.get_next() is None:
-                temp = q.get_data()
-                q.set_next(None)
-                self.__head = None
-                print("\nfirst node as last", temp, "is deleted\n")
-            else:
-                self.__head = q.get_next()
-                temp = q.get_data()
-                q.set_next(None)
-                print("\nfirst node", temp, "is deleted\n")
+        initial_addr = q
+        while count < k and q.get_next() is not None:
+            q = q.get_next()
+            count += 1
+        print(q.get_data()) 
+        if q is None: 
+            return
+        
+        self.__head = q.get_next()
+        q.set_next(None)
+        p = self.__head
+        
+        while p.get_next() is not None:
+            p = p.get_next()
+        p.set_next(initial_addr)
+            
+            
+        
+        
+        
 
-    def delete_last_node(self):
-        q = self.__head
-        temp = 0
-        if q is None:
-            print("\nlist is empty\n")
-        else:
-            if q.get_next() is None:
-                temp = q.get_data()
-                self.__head = None
-                print("\nlast node as first", temp, "is deleted\n")
-            else:
-                while q.get_next().get_next() is not None:
-                    q = q.get_next()
-                temp = q.get_next().get_data()
-                q.set_next(None)
-                print("\nlast node", temp, "is deleted\n")
 
-    def delete_specific_value(self, value):
-        q = self.__head
-        if q is None:
-            print("list is empty")
-        else:
-            if q.get_next() is None:
-                self.__head = None
-                print("\n", value, "is delete from the list as atmost value\n")
 
-            else:
-                p = q
-                fisrt = False
-                while q.get_next() is not None:
-                    if q.get_data() is value:
-                        fisrt = True
-                        break
-                    else:
-                        p = q
-                        q = q.get_next()
-                if fisrt:
-                    self.__head = p.get_next()
-                    p.set_next(None)
-                else:
-                    p.set_next(q.get_next())
-                    q.set_next(None)
-                print("\n", value, "is delete from the list\n")
+
         
        
 
@@ -113,11 +83,12 @@ sll.push(20)
 sll.push(30)
 sll.push(40)
 sll.push(50)
+sll.push(60)
 
 
 while True:
     print("--------MENU--------")
-    print("1.list nodes \n2.delete at head \n3.delete at tail \n4.delete a value \n5.exit")
+    print("1.list nodes \n2.rotate list \n5.exit")
     print("choose an option", end=" ")
     op = int(input())
 
@@ -125,12 +96,6 @@ while True:
         print()
         sll.list_nodes()
     elif op == 2:
-        sll.delete_first_node()
-    elif op == 3:
-        sll.delete_last_node()
-    elif op == 4:
-        print("\nenter the value to delete:", end='')
-        data = int(input())
-        sll.delete_specific_value(data)
+        sll.rotate_list(4)
     else:
         break
