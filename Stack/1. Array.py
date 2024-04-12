@@ -19,12 +19,13 @@ class Satck:
     def is_full(self):
         if self.get_maxsize() is None:
             return False
-        return len(self.get_stack() >= self.get_maxsize)
+        return len(self.get_stack()) >= self.get_maxsize()
     
     def push(self, item):
         if self.is_full():
             print("stack overflow")
             return
+          
         self.set_stack(item)
         print("pushed", item, "into the stack")
         
@@ -45,6 +46,14 @@ class Satck:
     def size(self):
         return len(self.get_stack())
     
+    def display_stack(self):
+        if self.is_empty():
+            print("stack is empty")
+        else:
+            print("stack elements: ")
+            for data in reversed(self.get_stack()):
+                print(data)
+    
 
 stack = Satck()
 print("set the size of stack: ", end='')
@@ -55,7 +64,8 @@ while True:
     print("1. push")
     print("2. pop")
     print("3. peek")
-    print("4. exit")
+    print("4. dispaly stack")
+    print("5. exit")
     
     op = input("enter your choice: ")
     
@@ -70,6 +80,8 @@ while True:
         if data is not None:
             print("top element of the stack:", data)
     elif op == '4':
+       stack.display_stack()
+    else:
         break
         
     
