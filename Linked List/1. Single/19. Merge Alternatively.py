@@ -16,8 +16,7 @@ class Node:
 class SingleLinledList:
     def __init__(self):
         self.__head = None
-    def get_head(self):
-        return self.__head
+
     
     def push(self, x):
         p = Node()
@@ -46,20 +45,25 @@ class SingleLinledList:
                 q = q.get_next()
             print('\n')
             
-    def merge_nodes(self, p, q):
-        p_curr = p.get_head()
-        q_curr = q.get_head()
-        
-        while p_curr != None and q_curr != None:
-            p_next = p_curr.get_next()
-            q_next = q_curr.get_next()
-            
-            q_curr.set_next(p_next)
-            p_curr.set_next(q_next)
-            
-            q_curr = p_next
-            q_curr = q_next
-            q.set_head(q_curr) 
+    def merge_nodes(self, list1, list2):
+        list1_curr = list1.__head 
+        list2_curr = list2.__head 
+  
+        # swap their positions until one finishes off 
+        while list1_curr != None and list2_curr != None: 
+  
+            # Save next pointers 
+            list1_next = list1_curr.get_next()
+            list2_next = list2_curr.get_next()
+  
+            # make list2_curr as next of list1_curr 
+            list2_curr.set_next(list1_next)  # change next pointer of list2_curr 
+            list1_curr.set_next(list2_curr)  # change next pointer of list1_curr 
+  
+            # update current pointers for next iteration 
+            list1_curr = list1_next 
+            list2_curr = list2_next 
+            list2.__head = list2_curr
         
 
             
@@ -67,9 +71,13 @@ class SingleLinledList:
 
 sll1 = SingleLinledList()
 sll2 = SingleLinledList()
-for i in range(1, 10, 2): 
-    sll2.push(i) 
-for i in range(20, 30, 2): 
+sll1.push(1) 
+sll1.push(2) 
+sll1.push(3) 
+sll1.push(4) 
+sll1.push(5) 
+sll1.push(6) 
+for i in range(11, 15,): 
     sll2.push(i) 
 
 
@@ -91,6 +99,6 @@ while True:
         sll2.list_nodes()
     elif op == 4:
         print()
-        sll1.merge_nodes(p=sll1, q=sll2)
+        sll1.merge_nodes(sll1, sll2)
     else:
         break
