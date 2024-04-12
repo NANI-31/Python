@@ -47,7 +47,7 @@ class Satck:
     
 
 stack = Satck()
-print("set the size of stack")
+print("set the size of stack: ", end='')
 s_size = int(input())
 stack.set_maxsize(s_size)
 while True:
@@ -57,10 +57,11 @@ while True:
     print("3. peek")
     print("4. exit")
     
-    op = input("enter your choice")
+    op = input("enter your choice: ")
     
     if op == '1':
-        data = int(input())
+        
+        data = int(input("enter the data: "))
         stack.push(data)
     elif op == '2':
         data = stack.pop()
