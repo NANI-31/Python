@@ -63,7 +63,7 @@ class SingleLinledList:
             # update current pointers for next iteration 
             list1_curr = list1_next 
             list2_curr = list2_next 
-            list2.__head = list2_curr
+            # list2.__head = list2_curr
         
 
             
