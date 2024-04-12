@@ -43,28 +43,43 @@ class SingleLinledList:
                 first_node = False
                 q = q.get_next()
             print('\n')
+            
     def delete_nodes(self, m, n):
         current = self.__head
-        prev = current
-        m_nodes = 0
-        n_nodes = 0
-        while current.get_next() is not None:
-            while m_nodes <= m:
-                prev = current
-                current = current.get_next()
-                m_nodes += 1
-            while n_nodes <= n:
-                if prev.get_next() is None:
+        # m_nodes = 1
+        # n_nodes = 0
+        # while current.get_next() is not None:
+        #     print("1w")
+        #     while m_nodes <= m:
+        #         current = current.get_next()
+        #         m_nodes += 1
+        #         print("2w")
+                
+        #     while n_nodes <= n:
+        #         if current.get_next() is None:
+        #             break
+        #         current.set_next(current.get_next().get_next())
+        #         n_nodes += 1
+        #         print("3w")
+        #     m_nodes = 1
+        #     n_nodes = 0
+        while current:
+            for count in range(1, m):
+                if current is None:
                     break
-                prev.set_next(current.get_next())
-                n_nodes += 1
+                current = current.get_next()
+            
+            t = current.get_next()
+            
+            for count in range(1, n+1):
+                if t is None:
+                    break
+                t = t.get_next()
+                
+            current.set_next(t)
+            current = t                
                 
             
-
-
-
-        
-       
 
 
 sll = SingleLinledList()
@@ -73,6 +88,7 @@ sll.push(20)
 sll.push(30)
 sll.push(40)
 sll.push(50)
+
 
 
 while True:
