@@ -71,13 +71,9 @@ class SingleLinledList:
 
 sll1 = SingleLinledList()
 sll2 = SingleLinledList()
-sll1.push(1) 
-sll1.push(2) 
-sll1.push(3) 
-sll1.push(4) 
-sll1.push(5) 
-sll1.push(6) 
-for i in range(11, 15,): 
+for i in range(1, 7,): 
+    sll1.push(i) 
+for i in range(91, 95,): 
     sll2.push(i) 
 
 
