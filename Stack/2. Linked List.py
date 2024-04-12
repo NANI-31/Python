@@ -66,7 +66,7 @@ while True:
     print("4. dispaly")                
     print("5. exit")   
     
-    op = int(input("eneter your option: ", end=''))
+    op = int(input("eneter your option: "))
     
     if op == 1:
         element = int(input("eneter the element to push: "))
