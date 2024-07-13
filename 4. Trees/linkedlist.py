@@ -1,4 +1,5 @@
 from display import display
+import time
 
 class Node:
     def __init__(self):
@@ -119,17 +120,81 @@ class Tree:
             self.inorder_recursive(node.get_right(), result)
             result.append(node.get_data())
             
-
+    def search(self, data):
+        return self.search_recursive(self.root, data)
+    
+    def search_recursive(self, cur_node, data):
+        if cur_node is None or cur_node.get_data() == data:
+            return cur_node
+        elif data < cur_node.get_data():
+            return self.search_recursive(cur_node.get_left(), data)
+        else:
+            return self.search_recursive(cur_node.get_right(), data)
+    
+    def level(self, data):
+        level, found = self.level_recursive(self.root, data)
+        print(level) if found else print("no data found")
+    def level_recursive(self, cur_node, data):
+        if cur_node is None:
+            return 0, False
+        if cur_node.get_data() == data:
+            return 1, True
+        elif cur_node.get_data() > data:
+            lNode, f = self.level_recursive(cur_node.get_left(), data)
+            if f:
+                return lNode+1, True
+        else:
+            rNode, f = self.level_recursive(cur_node.get_right(), data)
+            if f:
+                return rNode+1, True
+        return 0, False        
+        
+    def size_tree(self):
+        print(self.size_recursive(self.root))
+    def size_recursive(self, node):
+        if node is None:
+            return 0
+        else:
+            return (self.size_recursive(node.get_left()) + 1 + self.size_recursive(node.get_right()))
+            
+    def height_tree(self):
+        print(self.height_recursive(self.root))
+    def height_recursive(self, node):
+        if node is None:
+            return 0
+        else:
+            lDepth = self.height_recursive(node.get_left())
+            rDepth = self.height_recursive(node.get_right())
+            
+            if lDepth > rDepth:
+                return lDepth + 1
+            else:
+                return rDepth + 1
+            # return max(lDepth, rDepth) + 1
+            
 if __name__ == "__main__":
     bt = Tree()
     bt.insert(10)
     bt.insert(5)
     bt.insert(15)
-    # bt.insert(5)
     bt.insert(6)
     bt.insert(7)
-    bt.inorder_traversal()
+    # bt.inorder_traversal()
     display(bt)
+    # bt.size_tree()
+    # bt.height_tree()
+    # bt.level(8)
+    # print("size of the tree is: ",bt.size_tree())
+    node_value = 7
+    
+    start = time.time()
+    bt.level(node_value)
+    end = time.time()
+    print(end-start)
+    start = time.time()
+    print(bt.getLevel(node_value))
+    end = time.time()
+    print(end-start)
         
             
             

@@ -1,0 +1,11 @@
+if __name__ == "__main__":
+    bt = Tree()
+    bt.insert(10)
+    bt.insert(5)
+    bt.insert(15)
+    bt.insert(6)
+    bt.insert(7)
+    bt.inorder_traversal()
+    display(bt)
+    bt.size_tree()
+    bt.height_recursive(bt)
