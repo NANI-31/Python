@@ -101,23 +101,23 @@ class Tree:
     # ----------------preorder-----------------
     def preorder_traversal(self):
         result = []
-        self.inorder_recursive(self.root, result)
-        print("inorder traversal: ",result)
+        self.preorder_recursive(self.root, result)
+        print("preorder traversal: ",result)
     def preorder_recursive(self, node, result):
         if node:
             result.append(node.get_data())
-            self.inorder_recursive(node.get_left(), result)
-            self.inorder_recursive(node.get_right(), result)
+            self.preorder_recursive(node.get_left(), result)
+            self.preorder_recursive(node.get_right(), result)
             
     # ----------------postorder-----------------
     def postorder_traversal(self):
         result = []
-        self.inorder_recursive(self.root, result)
-        print("inorder traversal: ",result)
+        self.postorder_recursive(self.root, result)
+        print("postorder traversal: ",result)
     def postorder_recursive(self, node, result):
         if node:
-            self.inorder_recursive(node.get_left(), result)
-            self.inorder_recursive(node.get_right(), result)
+            self.postorder_recursive(node.get_left(), result)
+            self.postorder_recursive(node.get_right(), result)
             result.append(node.get_data())
             
     def search(self, data):
@@ -148,7 +148,30 @@ class Tree:
             if f:
                 return rNode+1, True
         return 0, False        
-        
+    
+    def getLevelUtil(self, node, data, level):
+        if (node == None):
+            return 0
+     
+        if (node.get_data() == data):
+            return level
+     
+        downlevel = self.getLevelUtil(node.get_left(),
+                                 data, level + 1)
+        if (downlevel != 0):
+            return downlevel
+     
+        downlevel = self.getLevelUtil(node.get_right(),
+                                 data, level + 1)
+        return downlevel
+ 
+# Returns level of given data value
+ 
+ 
+    def getLevel(self, data):
+ 
+        return self.getLevelUtil(self.root, data, 1)
+    
     def size_tree(self):
         print(self.size_recursive(self.root))
     def size_recursive(self, node):
@@ -179,11 +202,13 @@ if __name__ == "__main__":
     bt.insert(15)
     bt.insert(6)
     bt.insert(7)
-    # bt.inorder_traversal()
+    bt.inorder_traversal()
+    bt.preorder_traversal()
+    bt.postorder_traversal()
     display(bt)
-    # bt.size_tree()
-    # bt.height_tree()
-    # bt.level(8)
+    bt.size_tree()
+    bt.height_tree()
+    bt.level(8)
     # print("size of the tree is: ",bt.size_tree())
     node_value = 7
     
@@ -191,6 +216,7 @@ if __name__ == "__main__":
     bt.level(node_value)
     end = time.time()
     print(end-start)
+    
     start = time.time()
     print(bt.getLevel(node_value))
     end = time.time()
