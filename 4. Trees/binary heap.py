@@ -73,7 +73,8 @@ class BinaryHeap:
             if self.last_node.parent.right == self.last_node:
                 self.last_node.parent.right = None
             else:
-                self.last_node.parent.left = None  
+                self.last_node.parent.left = None
+                
         if self.size > 1:
             queue =[self.root]
             prev = None
