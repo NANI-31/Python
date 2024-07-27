@@ -210,17 +210,17 @@ if __name__ == "__main__":
     bt.height_tree()
     bt.level(8)
     # print("size of the tree is: ",bt.size_tree())
-    node_value = 7
+    # node_value = 7
     
-    start = time.time()
-    bt.level(node_value)
-    end = time.time()
-    print(end-start)
+    # start = time.time()
+    # bt.level(node_value)
+    # end = time.time()
+    # print(end-start)
     
-    start = time.time()
-    print(bt.getLevel(node_value))
-    end = time.time()
-    print(end-start)
+    # start = time.time()
+    # print(bt.getLevel(node_value))
+    # end = time.time()
+    # print(end-start)
         
             
             
