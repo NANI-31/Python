@@ -1,3 +1,5 @@
 from termcolor import colored
-def printed(s):
-    print(colored(s, "red", "on_black", attrs=['bold']))
+def printed(*argv):
+    for i in argv:
+        print(colored(i, "red", "on_black", attrs=['bold']))
+    # print("\n")

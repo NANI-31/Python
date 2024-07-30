@@ -1,0 +1,100 @@
+√1. Implement a binary tree.
+2. Implement a binary search tree.
+3. Find the height of a binary tree.
+4. Find the diameter of a binary tree.
+5. Check if a binary tree is balanced.
+6. Convert a binary tree into its mirror image.
+7. Find the level order traversal of a binary tree.
+8. Find the inorder traversal of a binary tree without recursion.
+9. Find the preorder traversal of a binary tree without recursion.
+10. Find the postorder traversal of a binary tree without recursion.
+11. Check if a binary tree is a binary search tree (BST).
+12. Find the lowest common ancestor (LCA) of two nodes in a binary tree.
+13. Find the maximum depth of a binary tree.
+14. Find the minimum depth of a binary tree.
+15. Find the maximum path sum in a binary tree.
+16. Convert a sorted array into a balanced binary search tree.
+17. Convert a sorted linked list into a balanced binary search tree.
+18. Serialize and deserialize a binary tree.
+19. Find the kth smallest element in a binary search tree.
+20. Find the kth largest element in a binary search tree.
+21. Delete a node from a binary search tree.
+22. Find the inorder predecessor of a node in a binary search tree.
+23. Find the inorder successor of a node in a binary search tree.
+24. Find the vertical order traversal of a binary tree.
+25. Find the top view of a binary tree.
+26. Find the bottom view of a binary tree.
+27. Find the right view of a binary tree.
+28. Find the left view of a binary tree.
+29. Check if two binary trees are identical.
+30. Check if two binary trees are mirror images of each other.
+31. Convert a binary tree to a doubly linked list.
+32. Convert a binary tree to a circular doubly linked list.
+33. Find the sum of all nodes in a binary tree.
+34. Find the number of nodes in a binary tree.
+35. Find the number of leaf nodes in a binary tree.
+36. Find the sum of all leaf nodes in a binary tree.
+37. Find the sum of all left leaves in a binary tree.
+38. Find the sum of all right leaves in a binary tree.
+39. Find the maximum value in a binary tree.
+40. Find the minimum value in a binary tree.
+41. Print all paths from root to leaf in a binary tree.
+42. Find the longest path from root to leaf in a binary tree.
+43. Find the shortest path from root to leaf in a binary tree.
+44. Find the distance between two nodes in a binary tree.
+45. Check if a binary tree has a path with a given sum.
+46. Find the sum of all nodes at a given level in a binary tree.
+47. Find the sum of all nodes in the left subtree of a binary tree.
+48. Find the sum of all nodes in the right subtree of a binary tree.
+49. Check if a binary tree is symmetric.
+50. Check if a binary tree is a complete binary tree.
+51. Check if a binary tree is a full binary tree.
+52. Check if a binary tree is a perfect binary tree.
+53. Count the number of nodes at a given level in a binary tree.
+54. Print all nodes at a given level in a binary tree.
+55. Print all ancestors of a given node in a binary tree.
+56. Print all cousins of a given node in a binary tree.
+57. Print the boundary traversal of a binary tree.
+58. Print the spiral order traversal of a binary tree.
+59. Find the deepest node in a binary tree.
+60. Find the level with the maximum sum in a binary tree.
+61. Convert a binary tree to a threaded binary tree.
+62. Find the median of a binary search tree.
+63. Check if a binary search tree is a valid AVL tree.
+64. Implement an AVL tree.
+65. Implement a red-black tree.
+66. Check if a binary search tree is a valid red-black tree.
+67. Implement a splay tree.
+68. Implement a B-tree.
+69. Implement a B+ tree.
+70. Implement a trie (prefix tree).
+71. Insert a word into a trie.
+72. Search for a word in a trie.
+73. Delete a word from a trie.
+74. Find all words in a trie with a given prefix.
+75. Find the longest common prefix in a list of words using a trie.
+76. Implement a segment tree.
+77. Implement a Fenwick tree (binary indexed tree).
+78. Range sum query using a segment tree.
+79. Range minimum query using a segment tree.
+80. Range maximum query using a segment tree.
+81. Range sum query using a Fenwick tree.
+82. Range update and point query using a Fenwick tree.
+83. Range update and range query using a segment tree.
+84. Convert a binary tree to a sum tree.
+85. Convert a binary tree to a child-sum property tree.
+86. Check if a binary tree satisfies the child-sum property.
+87. Find the lowest common ancestor in a binary search tree.
+88. Find the maximum width of a binary tree.
+89. Find the vertical sum of a binary tree.
+90. Construct a binary tree from inorder and preorder traversals.
+91. Construct a binary tree from inorder and postorder traversals.
+92. Construct a binary tree from inorder and level order traversals.
+93. Flatten a binary tree to a linked list in-place.
+94. Find all nodes at distance k from a given node in a binary tree.
+95. Print the nodes in the bottom view of a binary tree.
+96. Print the nodes in the top view of a binary tree.
+97. Check if a binary tree is height-balanced.
+98. Check if a binary tree is a subtree of another binary tree.
+99. Print all leaf nodes of a binary tree from left to right.
+100. Find the sum of all nodes on the longest path from root to leaf in a binary tree.

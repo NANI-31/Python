@@ -1,1 +1,0 @@
-self.height_recursive(node.get_left())
