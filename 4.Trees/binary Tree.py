@@ -22,11 +22,11 @@ class Node:
     def get_left(self):
         return self.__left
         
-
 class Tree:
     def __init__(self):
         self.root = None
-        
+   
+    # ----------------insert----------------
     def insert(self, data):
         q = Node()
         q.set_data(data)
@@ -34,7 +34,6 @@ class Tree:
             self.root = q
         else:
             self.insert_recursive(self.root, data)
-        
     def insert_recursive(self, curr_node, data):
         q = Node()
         q.set_data(data)
@@ -52,10 +51,10 @@ class Tree:
         
         else:
             print(f"data {data} is already exists in the tree")
-            
+    
+    # ----------------delete----------------       
     def delete(self, data):
         self.root = self.delete_recursive(self.root, data)
-    
     def delete_recursive(self, curr_node, data):
         
         if curr_node.get_data() > data:
@@ -79,8 +78,7 @@ class Tree:
             curr_node.set_data(successor.get_data())
             curr_node.set_right(self.delete_recursive(curr_node.get_right, successor.get_data()))
         
-        return curr_node
-    
+        return curr_node  
     def find_min_val(self, data):
         curr = data
         while curr.get_left() is not None:
@@ -119,18 +117,26 @@ class Tree:
             self.postorder_recursive(node.get_left(), result)
             self.postorder_recursive(node.get_right(), result)
             result.append(node.get_data())
-            
+    
+    # ----------------search----------------       
     def search(self, data):
         return self.search_recursive(self.root, data)
-    
     def search_recursive(self, cur_node, data):
-        if cur_node is None or cur_node.get_data() == data:
-            return cur_node
-        elif data < cur_node.get_data():
-            return self.search_recursive(cur_node.get_left(), data)
-        else:
-            return self.search_recursive(cur_node.get_right(), data)
+        cur = cur_node
+        while cur:
+            if cur.get_data() > data:
+                cur = cur.get_left()
+            elif cur.get_data() < data:
+                cur = cur.get_right()
+            else: return "found"
+        # if cur_node is None or cur_node.get_data() == data:
+        #     return "found"
+        # elif data < cur_node.get_data():
+        #     return self.search_recursive(cur_node.get_left(), data)
+        # else:
+        #     return self.search_recursive(cur_node.get_right(), data)
     
+    # ----------------level----------------          
     def level(self, data):
         level, found = self.level_recursive(self.root, data)
         print(level) if found else print("no data found")
@@ -148,7 +154,6 @@ class Tree:
             if f:
                 return rNode+1, True
         return 0, False        
-    
     def getLevelUtil(self, node, data, level):
         if (node == None):
             return 0
@@ -164,14 +169,11 @@ class Tree:
         downlevel = self.getLevelUtil(node.get_right(),
                                  data, level + 1)
         return downlevel
- 
-# Returns level of given data value
- 
- 
     def getLevel(self, data):
  
         return self.getLevelUtil(self.root, data, 1)
     
+    # ----------------size----------------
     def size_tree(self):
         print(self.size_recursive(self.root))
     def size_recursive(self, node):
@@ -179,7 +181,8 @@ class Tree:
             return 0
         else:
             return (self.size_recursive(node.get_left()) + 1 + self.size_recursive(node.get_right()))
-            
+    
+    # ----------------height----------------   
     def height_tree(self):
         print(self.height_recursive(self.root))
     def height_recursive(self, node):
@@ -209,6 +212,7 @@ if __name__ == "__main__":
     bt.size_tree()
     bt.height_tree()
     bt.level(8)
+    print(bt.search(6))
     # print("size of the tree is: ",bt.size_tree())
     # node_value = 7
     

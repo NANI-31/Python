@@ -18,7 +18,7 @@ def diameter(root):
     if not root: return 0
     a = [0]
     h = height(root,a)
-    return a[0]
+    return a[0],h
 
 root = Node(1)
 root.left = Node(2)
